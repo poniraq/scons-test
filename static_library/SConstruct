@@ -4,4 +4,4 @@ target = 'my_library'
 env = Environment()
 env.Append(CCFLAGS = ' /EHsc')
 
-env.Library(target, sources)
+env.StaticLibrary(target, sources)

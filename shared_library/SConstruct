@@ -1,0 +1,7 @@
+sources = ['src/lib.cpp']
+target = 'my_library'
+
+env = Environment()
+env.Append(CCFLAGS = ' /EHsc')
+
+env.SharedLibrary(target, sources)
