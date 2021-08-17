@@ -1,0 +1,4 @@
+sources = ['src/main.cpp']
+exec_name = 'scons_test'
+
+Program(exec_name, sources)
