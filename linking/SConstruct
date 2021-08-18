@@ -1,0 +1,18 @@
+STATIC = False
+
+env = Environment()
+env.Append(CCFLAGS = ' /EHsc')
+
+# Library
+lib_env = env.Clone()
+lib_sources = ['lib/lib.cpp']
+lib_target = 'my_library'
+lib_constructor = lib_env.StaticLibrary if STATIC else lib_env.SharedLibrary
+if not STATIC:
+    lib_env.Append(CCFLAGS = ' /DMYLIB_DLL')
+lib_constructor(lib_target, lib_sources)
+
+# Program
+program_sources = ['src/main.cpp']
+program_target = 'my_program'
+env.Program(program_target, program_sources, LIBS = [lib_target], LIBPATH = '.')
