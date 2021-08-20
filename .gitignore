@@ -4,3 +4,4 @@
 *.lib
 *.dll
 .vscode/
+__pycache__/

@@ -1,0 +1,19 @@
+import SCons.Script
+import Globals
+
+env: SCons.Script.Environment = Globals.Import('env').Clone()
+if not Globals.Import('purge', False):
+    # dependencies
+    glfw = Globals.Import('glfw-x86-debug')
+    
+    # Program
+    libs = [glfw['lib']]
+    libpaths = [glfw['libpath']]
+    includes = [glfw['include']]
+
+    env.Append(CCFLAGS = ' /EHsc')
+    env.Append(CPPPATH = ['.', *includes])
+
+    program_sources = ['main.cpp']
+    program_target = 'my_program'
+    program = env.Program(program_target, program_sources, LIBS=libs, LIBPATH=libpaths)

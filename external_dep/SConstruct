@@ -1,0 +1,14 @@
+import SCons.Script
+import SCons.Script.SConscript
+import os
+
+import Globals
+import dependencies
+
+env = SCons.Script.Environment(
+    ENV=os.environ.copy()
+)
+Globals.Export('env', env)
+
+dependencies.init()
+SCons.Script.SConscript('src/SConscript', variant_dir='build', duplicate=False)
