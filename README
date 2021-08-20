@@ -1,3 +1,14 @@
-Python 3
-SCons 4.2+
-Git + ssh-agent
+### Why
+This repo is supposed to serve as a list of examples of what can and can't, should and shouldn't be done with SCons
+
+### Dependencies
+- Python 3
+- SCons 4.2+
+- Git + ssh-agent
+- CMake
+
+### How to build
+```
+scons -C <project-folder>        - builds project
+scons -C <project-folder> --help - SCons help + local project options
+```
